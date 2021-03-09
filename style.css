@@ -7,6 +7,8 @@
     grid-template-areas: "product options"
                          "features features";
     gap: 1em;
+    max-width: 1100px;
+    margin: 0 auto;
   }
   
   #product-preview {
@@ -84,16 +86,39 @@
   
   #selected ul li img {
     width: 3em;
+    height: 3em;
+    object-fit: contain;
+    margin-right: 10px;
   }
   
   /* Animation classes */
-  
+
   .animate-feature-in {
-    /* TODO: Create animation for adding a feature */
-    
+    animation: add 1 1s;
+  }
+  
+  @keyframes add {
+    0% {
+      transform: translate(var(--diffx), var(--diffy)) scale(0);
+    }
+
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
   }
   
   .animate-feature-out {
-    /* TODO: Create animation for removing a feature */
+    animation: remove 1 1.5s reverse;
+  }
+  
+  @keyframes remove {
+    0% {
+      transform: translate(var(--diffx), var(--diffy)) scale(0);
+    
+    }
+  
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
   }
   
